@@ -1,7 +1,7 @@
 {
-  "name": "wahtari",
-  "version": "0.2.1",
-  "description": "Wahtari Frontend",
+  "name": "ibm-appatnight-client",
+  "version": "0.0.1",
+  "description": "IBM App@Night Track",
   "main": "gulpfile.js",
   "dependencies": {
     "array-differ": "^1.0.0",
