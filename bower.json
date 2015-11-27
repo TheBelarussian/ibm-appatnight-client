@@ -1,0 +1,19 @@
+{
+  "name": "ibm-client",
+  "description": "frontend",
+  "main": "gulpfile.js",
+  "authors": [
+    "Wlad Meixner"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
