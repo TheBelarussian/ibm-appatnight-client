@@ -1,7 +1,8 @@
 // Create the shop module and name it.
 // Also include ngRoute for all our routing needs
 angular.module('app', [
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
 ]);
 
 angular.module('app').config(function($stateProvider, $urlRouterProvider) {
@@ -18,6 +19,6 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 });
 
 angular.module('app').run(function () {
-    
+
 });
     // Set to the root scope.
