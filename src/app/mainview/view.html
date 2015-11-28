@@ -15,31 +15,47 @@
 
 	<div class="row">
 	    <div id="session" class="col-md-2" ng-controller="mainviewSessionCtrl as session">
-	    	<h4>Session Information</h4>
-	    	<div class="panel panel-default">
-	    		<div class="panel-body">
-	    			<strong>Name:</strong> {{ info.name }} <br />
-	    			<strong>Date:</strong> {{ info.date }} <br />
-	    			<strong>Starting Time:</strong> {{ info.startingTime }} <br />
-	    		</div>
-	    	</div>
-	    	<h4>Connected Users (4)</h4>
-	    	<ul class="list-group">
-	    		<li class="list-group-item" ng-repeat="user in users">{{ user.name }}</li>
-	    	</ul>
+
+			<div class="leftrow demo-card-square mdl-card mdl-shadow--2dp">
+				<div class="mdl-card__title">
+					Session Information
+				</div>
+				<div class="mdl-card__actions mdl-card--border" >
+					<label class=" mdl-button--colored mdl-js-button mdl-js-ripple-effect" >
+						<strong>Name:</strong> {{ info.name }} <br /><br />
+						<strong>Date:</strong> {{ info.date }} <br /><br />
+						<strong>Starting Time:</strong> {{ info.startingTime }} <br /><br />
+					</label>
+				</div>
+
+			</div>
+			<div class="leftrow demo-card-square mdl-card mdl-shadow--2dp">
+				<div class="mdl-card__title">
+					Participants:
+				</div>
+				<div class="mdl-card__actions mdl-card--border" ng-repeat="user in users">
+					<label class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" >
+						{{ user.name }}
+					</label>
+				</div>
+
+			</div>
 	    </div>
 	    <div id="protocol" class="col-md-5" ng-controller="mainviewProtocolCtrl as protocol">
 	    	<h4>Protocol Feed</h4>
 	    	<div class="row">
 	    		<div class="col-md-12">
-	    			<div class="panel panel-default" ng-repeat="item in protocol">
-	    				<div class="panel-heading">
-	    					<h3 class="panel-title">{{ item.user }}</h3>
-	    				</div>
-	    				<div class="panel-body">
-	    					<span class="feed-msg" ng-repeat="message in item.messages">[{{ message.time }}] {{ message.message }}</span>
-	    				</div>
-	    			</div>
+					<div id="card" class="demo-card-square mdl-card mdl-shadow--2dp" ng-repeat="item in protocol">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">{{ item.user }}</h2>
+						</div>
+
+						<div class="mdl-card__actions mdl-card--border">
+							<div class="mdl-card__supporting-text">
+								<span class="feed-msg" ng-repeat="message in item.messages">[{{ message.time }}] {{ message.message }}</span>
+							</div>
+						</div>
+					</div>
 	    		</div>
 	    	</div>
 	    </div>

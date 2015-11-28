@@ -2,6 +2,7 @@
 	border-right: solid;
 	border-color: #8DBBD0;
 }
+
 .navbar img{
 	height: 40px;
 	width: 180px;
@@ -12,8 +13,25 @@
 
 }
 
+.leftrow {
+	width: 250px;
+	margin-bottom: 20px;
+}
+
+.mdl-card__title{
+	background: #B3E5FC;
+}
+.demo-card-square{
+	background: #E1F5FE;
+}
 #topnav {
 	margin-top: 15px;
+}
+#card{
+	margin-bottom: 20px;
+	width: 500px;
+	margin-right: 10%;
+	margin-left: 13%;
 }
 
 #protocol .feed-msg {

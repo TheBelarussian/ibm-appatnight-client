@@ -1,13 +1,18 @@
-<img src="assets/img/logo.png" alt="logo">
+<img id="logo" src="assets/img/logo.png" alt="logo">
 <div id="login">
 
     <form name="form" ng-submit="login()" class="form-group" >
         <ul>
             <li>
-                <input type="text" placeholder="Please enter you name" ng-model="name" name="name" >
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="sample1" ng-model="name" name="name" >
+                        <label class="mdl-textfield__label" ng-hide="form.$dirty" for="sample1">Name</label>
+                    </div>
             </li>
             <li>
-                <button ng-disabled="!form.$dirty"> Join </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised" ng-disabled="!form.$dirty">
+                    Join
+                </button>
             </li>
         </ul>
     </form>
