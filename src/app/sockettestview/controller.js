@@ -1,10 +1,15 @@
 angular.module('app').controller('socketTestCtrl', [
 '$scope',
 'socket',
-function($scope, socket) {
+'microphone',
+function($scope, socket, microphone) {
+
+    microphone.init();
+    microphone.record();
+
     $scope.testing = "HELLO";
 
     socket.on("connection", function(data) {
-        console.log("connected: " + data);
+        $scope.text = data.text;
     });
 }]);
