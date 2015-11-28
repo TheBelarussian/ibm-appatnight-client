@@ -50,8 +50,9 @@ var exportDataBuffer = function(buffer, bufferSize) {
         index = 0,
         volume = 0x7FFF; //range from 0 to 0x7FFF to control the volume
 
+
     pcmEncodedBuffer = new ArrayBuffer(bufferSize * 2);
-    dataView = new DataView(pcmEncodedBuffer);
+    //dataView = new DataView(pcmEncodedBuffer);
 
     /* Explanation for the math: The raw values captured from the Web Audio API are
      * in 32-bit Floating Point, between -1 and 1 (per the specification).
@@ -118,9 +119,10 @@ var Microphone = {
 
         audioInput.connect(gain);
 
-        console.log(this.mic);
+
 
         this.mic = this.audioContext.createScriptProcessor(this.bufferSize, this.inputChannels, this.outputChannels);
+
 
         // uncomment the following line if you want to use your microphone sample rate
         //this.sampleRate = this.audioContext.sampleRate;
@@ -137,6 +139,7 @@ var Microphone = {
     },
 
     _onaudioprocess: function(data) {
+        console.log(data);
         if (!this.recording) {
             // We speak but we are not recording
             return;
@@ -178,6 +181,7 @@ var Microphone = {
         //this.playWav(); /*plays back the audio that was recorded*/
         this.recording = false;
         this.stream.getTracks()[0].stop();
+        console.log(this.stream);
         this.requestedAccess = false;
         this.mic.disconnect(0);
         this.mic = null;

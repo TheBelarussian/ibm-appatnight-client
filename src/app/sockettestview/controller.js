@@ -5,7 +5,14 @@ angular.module('app').controller('socketTestCtrl', [
 function($scope, socket, microphone) {
 
     microphone.init();
-    microphone.record();
+
+    $scope.record = function() {
+        microphone.record()
+    };
+
+    $scope.stop = function() {
+        microphone.stop()
+    };
 
     $scope.testing = "HELLO";
 
