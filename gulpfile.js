@@ -36,7 +36,7 @@ gulp.task('bower', function() {
 
 
 gulp.task('js', function () {
-  gulp.src(['./src/app/*.js', './src/app/**/module.js', './src/app/**/*.js'])
+  gulp.src(['./src/app/*.js', './src/app/**/controller.js', './src/app/**/*.js'])
   	.pipe(gulpif(debug, sourcemaps.init()))
 		.pipe(jshint())
 		.pipe(jshint.reporter('jshint-stylish'))
