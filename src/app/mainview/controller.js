@@ -5,9 +5,9 @@ angular.module('app').controller('mainviewCtrl', [
 ]);
 
 angular.module('app').controller('mainviewRecordButtonController', [
-	'$scope',
-	function($scope) {
-		activateRecordButton();
+	'$scope', 'microphone', 
+	function($scope, microphone) {
+		activateRecordButton(microphone);
 	}
 ]);
 

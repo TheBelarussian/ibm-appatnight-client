@@ -275,7 +275,7 @@ function handleMicrophone(token, model, mic, callback) {
 
 //var Microphone = require('../Microphone');
 
-function initRecordButton(ctx) {
+function initRecordButton(ctx, microphone) {
 
   var recordButton = $('#recordButton');
 
@@ -286,7 +286,8 @@ function initRecordButton(ctx) {
     var micOptions = {
       bufferSize: ctx.buffersize
     };
-    var mic = microphone(micOptions);
+    microphone.init(micOptions);
+    var mic = microphone;
 
     return function(evt) {
       // Prevent default anchor behavior
@@ -346,7 +347,7 @@ var showError = console.log;
 window.BUFFERSIZE = 8192;
 
 //$(document).ready(function() {
-function activateRecordButton() {
+function activateRecordButton(microphone) {
   var tokenGenerator = createTokenGenerator();
 
   // Make call to API to try and get token
@@ -355,6 +356,7 @@ function activateRecordButton() {
       localStorage.clear();
     };
 
+    console.log(token);
     if (!token) {
       console.error('No authorization token available');
       console.error('Attempting to reconnect...');
@@ -372,7 +374,7 @@ function activateRecordButton() {
       bufferSize: BUFFERSIZE
     };
 
-    initRecordButton(viewContext);
+    initRecordButton(viewContext, microphone);
 
     // Save models to localstorage
     localStorage.setItem('models', JSON.stringify(models));
