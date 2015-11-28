@@ -1,6 +1,10 @@
 body {
     padding: 0;
     margin : 0;
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
 }
 
 * {

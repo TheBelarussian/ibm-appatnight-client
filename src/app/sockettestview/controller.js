@@ -4,11 +4,8 @@ angular.module('app').controller('socketTestCtrl', [
 'microphone',
 function($scope, socket, microphone) {
 
-microphone.init();
-microphone.record();
-
-
-
+    microphone.init();
+    microphone.record();
 
     $scope.testing = "HELLO";
 

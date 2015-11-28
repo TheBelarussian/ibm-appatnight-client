@@ -17,9 +17,9 @@ angular.module('app')
             controller  : 'mainviewCtrl'
         })
         .state('loginview', {
-            url: "login",
-            controller: 'loginviewCtrl',
-            templateUrl: 'loginview/login.html'
+            url: "/login",
+            templateUrl: 'loginview/login.html',
+            controller: 'loginviewCtrl'
         })
         .state('testview', {
             url: "/testing",
