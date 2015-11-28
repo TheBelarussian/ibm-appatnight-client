@@ -15,8 +15,6 @@
  */
 /*global $:false, BUFFERSIZE */
 
-'use strict';
-
 var models = {
    "models": [
       {
@@ -90,6 +88,7 @@ function createTokenGenerator() {
         return;
       }
       var url = '/api/token';
+      url = 'http://localhost:3000';
       var tokenRequest = new XMLHttpRequest();
       tokenRequest.open('POST', url, true);
       tokenRequest.setRequestHeader('csrf-token',$('meta[name="ct"]').attr('content'));
@@ -273,9 +272,9 @@ function handleMicrophone(token, model, mic, callback) {
   }
 
   initSocket(options, onOpen, onListening, onMessage, onError, onClose);
-};
+}
 
-var Microphone = require('../Microphone');
+//var Microphone = require('../Microphone');
 
 function initRecordButton(ctx) {
 
@@ -347,7 +346,8 @@ var showError = console.log;
 
 window.BUFFERSIZE = 8192;
 
-$(document).ready(function() {
+//$(document).ready(function() {
+function activateRecordButton() {
   var tokenGenerator = createTokenGenerator();
 
   // Make call to API to try and get token
@@ -412,7 +412,7 @@ $(document).ready(function() {
         viewContext.models = response.models;
       };
       sttRequest.onerror = function() {
-        viewContext.models = require('./data/models.json').models;
+        viewContext.models = models;
       };
       sttRequest.send();
     })(token);
@@ -423,4 +423,4 @@ $(document).ready(function() {
 
   });
 
-});
+}
