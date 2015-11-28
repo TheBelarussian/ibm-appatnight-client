@@ -1,6 +1,6 @@
 // This factory exposes the socket io client as a angular factory
 angular.module('app').factory('socket', function ($rootScope) {
-  var socket = io.connect();
+  var socket = io();
 
   return {
     on: function (eventName, callback) {
