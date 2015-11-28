@@ -76,10 +76,11 @@ gulp.task('sass', function () {
     outputStyle: "expanded"
   };
 
-  gulp.src('./src/assets/sass/**/*.scss')
+  gulp.src(['./src/assets/sass/**/*.scss', './src/app/**/*.css', './src/app/**/*.scss'])
 	.pipe(plumber({errorHandler: onError}))
     .pipe(gulpif(debug, sass(debugOpts).on('error', sass.logError)))
     .pipe(gulpif(!debug, sass(opts).on('error', sass.logError)))
+	.pipe(concat('style.css'))
     .pipe(gulp.dest('./dist/assets/css'))
     .pipe(connect.reload());
 });
@@ -94,7 +95,7 @@ gulp.task('assets', function () {
 
 gulp.task('watch', ['js', 'sass', 'html', 'assets'], function () {
   gulp.watch(['./src/app/*.js', './src/app/**/*.js'], ['js']);
-  gulp.watch(['./src/assets/sass/**/*.scss', './src/assets/sass/*.scss'], ['sass']);
+  gulp.watch(['./src/assets/sass/**/*.scss', './src/assets/sass/*.scss', './src/app/**/*.css', './src/app/**/*.scss'], ['sass']);
   gulp.watch(['./src/*.html', './src/**/*.html'], ['html']);
   gulp.watch(['./src/assets/**'], ['assets']);
 });
