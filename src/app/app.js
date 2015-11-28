@@ -15,6 +15,11 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
             url: "/",
             templateUrl : 'mainview/view.html',
             controller  : 'mainviewCtrl'
+        })
+        .state('testview', {
+            url: "/testing",
+            templateUrl : 'sockettestview/view.html',
+            controller  : 'socketTestCtrl'
         });
 });
 
