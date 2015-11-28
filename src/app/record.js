@@ -88,7 +88,6 @@ function createTokenGenerator() {
         return;
       }
       var url = '/api/token';
-      url = 'http://localhost:3000';
       var tokenRequest = new XMLHttpRequest();
       tokenRequest.open('POST', url, true);
       tokenRequest.setRequestHeader('csrf-token',$('meta[name="ct"]').attr('content'));
