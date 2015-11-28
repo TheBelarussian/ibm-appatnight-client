@@ -1,18 +1,14 @@
-<section id="LoginArea" >
+<img src="assets/img/logo.png" alt="logo">
+<div id="login">
+
     <form name="form" ng-submit="login()" class="form-group" >
         <ul>
             <li>
-                <input type="text" placeholder="Conference ID" >
+                <input type="text" placeholder="Please enter you name" ng-model="name" name="name" >
             </li>
             <li>
-                <input type="email" placeholder="Email address">
-            </li>
-            <li>
-                <button> Join </button>
-            </li>
-            <li>
-                <button> Create </button>
+                <button ng-disabled="!form.$dirty"> Join </button>
             </li>
         </ul>
     </form>
-</section>
+</div>
